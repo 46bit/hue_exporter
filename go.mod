@@ -21,7 +21,7 @@ require (
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
-	gopkg.in/yaml.v2 v2.2.1
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 replace github.com/collinux/gohue => github.com/arjunrn/gohue v0.0.0-20211211161734-9ef7b14f4b76
