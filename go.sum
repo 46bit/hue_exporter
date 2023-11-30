@@ -1,5 +1,5 @@
-github.com/46bit/gohue v0.0.0-20211211161734-9ef7b14f4b76 h1:fYFJtamYxUD7KKUvet+lfyz0LTVLMKa849/nTjora28=
-github.com/46bit/gohue v0.0.0-20211211161734-9ef7b14f4b76/go.mod h1:ga1tWZBc9cBbWqGVddhkV3VSd2ZoIldhqyk3oWykK/E=
+github.com/46bit/gohue v0.0.0-20231130052419-2f85d8495a4e h1:3Zrhcw7IUFC4n5FCI+HO5Q9T5eLsLvqlzOGFeEFmdCI=
+github.com/46bit/gohue v0.0.0-20231130052419-2f85d8495a4e/go.mod h1:ga1tWZBc9cBbWqGVddhkV3VSd2ZoIldhqyk3oWykK/E=
 github.com/alecthomas/kingpin/v2 v2.4.0 h1:f48lwail6p8zpO1bC4TxtqACaGqHYA22qkHjHpqDjYY=
 github.com/alecthomas/kingpin/v2 v2.4.0/go.mod h1:0gyi0zQnjuFk8xrkNKamJoyUo382HRL7ATRpFZCw6tE=
 github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137 h1:s6gZFSlWYmbqAuRjVTiNNhvNRfY2Wxp9nhfyel4rklc=

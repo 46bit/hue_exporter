@@ -24,4 +24,4 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 )
 
-replace github.com/collinux/gohue => github.com/46bit/gohue v0.0.0-20211211161734-9ef7b14f4b76
+replace github.com/collinux/gohue => github.com/46bit/gohue v0.0.0-20231130052419-2f85d8495a4e
