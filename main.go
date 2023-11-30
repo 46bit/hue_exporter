@@ -3,17 +3,17 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"time"
 
-	"gopkg.in/alecthomas/kingpin.v2"
 	"gopkg.in/yaml.v2"
 
+	"github.com/alecthomas/kingpin/v2"
 	hue "github.com/collinux/gohue"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/version"
 )
 
@@ -25,9 +25,9 @@ var (
 	run         = app.Command("run", "Run the exporter.").Default()
 	// TODO: update https://github.com/prometheus/prometheus/wiki/Default-port-allocations
 	addr     = run.Flag("listen.address", "The address to listen on for HTTP requests.").Short('l').Default(":9366").TCP()
-	config   = run.Flag("config.file", "The config file to use.").Short('c').Default("hue_exporter.yml").ExistingFile()
+	config   = run.Flag("config.file", "The config file to use.").Short('c').Default("config.yml").ExistingFile()
 	generate = app.Command("generate", "Generate configuration for Hue exporter.")
-	output   = generate.Flag("output.file", "The output file to use.").Short('o').Default("hue_exporter.yml").String()
+	output   = generate.Flag("output.file", "The output file to use.").Short('o').Default("config.yml").String()
 )
 
 type Config struct {
@@ -89,9 +89,8 @@ func listen() {
 		Addr:         (*addr).String(),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
-		ErrorLog:     log.NewErrorLogger(),
 	}
-	log.Infoln("Listening on", (*addr).String())
+	log.Println("Listening on", (*addr).String())
 	log.Fatal(srv.ListenAndServe())
 }
 
@@ -109,13 +108,12 @@ func runServer() {
 }
 
 func main() {
-	log.AddFlags(app)
 	command := kingpin.MustParse(app.Parse(os.Args[1:]))
 	if *showVersion {
 		fmt.Fprintln(os.Stdout, version.Print("hue_exporter"))
 	} else {
-		log.Infoln("Starting hue_exporter", version.Info())
-		log.Infoln("Build context", version.BuildContext())
+		log.Println("Starting hue_exporter", version.Info())
+		log.Println("Build context", version.BuildContext())
 		switch command {
 		case run.FullCommand():
 			runServer()

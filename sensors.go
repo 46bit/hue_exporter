@@ -1,11 +1,11 @@
 package main
 
 import (
+	"log"
 	"math"
 
 	hue "github.com/collinux/gohue"
 	"github.com/prometheus/client_golang/prometheus"
-	log "github.com/prometheus/common/log"
 )
 
 type sensorCollector struct {
@@ -166,7 +166,7 @@ func (c sensorCollector) Collect(ch chan<- prometheus.Metric) {
 
 	sensors, err := c.bridge.GetAllSensors()
 	if err != nil {
-		log.Errorf("Failed to update sensors: %v", err)
+		log.Printf("Failed to update sensors: %v", err)
 		c.sensorScrapesFailed.Inc()
 	}
 	sensorNames := make(map[string]string)

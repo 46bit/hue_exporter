@@ -1,8 +1,9 @@
 package main
 
 import (
+	"log"
+
 	"github.com/prometheus/client_golang/prometheus"
-	log "github.com/prometheus/common/log"
 )
 
 type lightCollector struct {
@@ -104,7 +105,7 @@ func (c lightCollector) Collect(ch chan<- prometheus.Metric) {
 
 	lights, err := c.bridge.GetAllLights()
 	if err != nil {
-		log.Errorf("Failed to update lights: %v", err)
+		log.Printf("Failed to update lights: %v", err)
 		c.lightScrapesFailed.Inc()
 	}
 

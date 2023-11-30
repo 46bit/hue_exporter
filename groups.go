@@ -1,8 +1,9 @@
 package main
 
 import (
+	"log"
+
 	"github.com/prometheus/client_golang/prometheus"
-	log "github.com/prometheus/common/log"
 )
 
 type groupCollector struct {
@@ -88,7 +89,7 @@ func (c groupCollector) Collect(ch chan<- prometheus.Metric) {
 
 	groups, err := c.bridge.GetAllGroups()
 	if err != nil {
-		log.Errorf("Failed to update groups: %v", err)
+		log.Printf("Failed to update groups: %v", err)
 		c.groupScrapesFailed.Inc()
 	}
 
